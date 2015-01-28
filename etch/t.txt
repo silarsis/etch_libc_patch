@@ -1,0 +1,8 @@
+glibc (2.3.6.ds1-13etch11) oldstable-security; urgency=low
+
+ * Fixes: CVE-2015-0235.
+
+  -- Kevin Littlejohn <kevin@littlejohn.id.au>  Wed, 28 Jan 2015 15:58:00 +0100
+This is a test
+
+Just a test
