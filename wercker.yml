@@ -1,0 +1,17 @@
+box: wercker-labs/docker
+# Build definition
+build:
+  steps:
+    - script:
+        name: Build
+        code: |
+          pushd etch && docker build -t silarsis/patched_etch . && popd
+          pushd lenny && docker build -t silarsis/patched_lenny . && popd
+          docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+          docker push silarsis/patched_etch
+          docker push silarsis/patched_lenny
+  after-steps:
+    - sherzberg/slack-notify:
+        subdomain: littlejohn
+        token: $SLACK_TOKEN
+        channel: deployment
